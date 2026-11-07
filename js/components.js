@@ -186,5 +186,5 @@ const footerHtml = () => `<footer><div class="wrap">
   <div><h3>${SITE.name}</h3><p style="opacity:.7;max-width:340px">${FOOTER.text}</p></div>
   <div>${FOOTER.links.map(x => `<a href="#/${x[0]}">${x[1]}</a>`).join('')}</div>
   <div><p>${SITE.addressFooter}</p><p>${SITE.hoursShort}</p><a href="${TEL}">${SITE.phone}</a><a href="mailto:${SITE.email}">${SITE.email}</a><a href="https://www.instagram.com/lujaika.tennis" target="_blank" rel="noopener">Instagram</a><a href="https://vk.ru/lulaika_tennis" target="_blank" rel="noopener">ВКонтакте</a></div>
-  <small>${FOOTER.copyright} · <a href="${SITE.privacyUrl}" style="display:inline">${FOOTER.privacyText}</a> · <a href="#/consent" style="display:inline">Согласие на обработку данных</a> · <a href="#" style="display:inline" data-cookie-settings>${COOKIES.settings}</a></small>
+  <small>${FOOTER.copyright} · <a href="${SITE.privacyUrl}" style="display:inline">${FOOTER.privacyText}</a></small>
 </div></footer>`;

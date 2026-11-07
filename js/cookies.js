@@ -42,7 +42,8 @@ document.addEventListener('click', e => {
 
 /* Вызывается после каждой отрисовки страницы (app.js) */
 function setupCookieUi() {
-  if (getConsent() === 'all') loadBookingFrame();
+  /* ничего: расписание не встраивается */
 }
 
-if (!getConsent()) showCookieBanner();
+/* Баннер cookie отключён (решение владелицы 2026-11-07): сайт cookie не ставит,
+   онлайн-запись открывается на сайте go2sport.ru в новой вкладке. */

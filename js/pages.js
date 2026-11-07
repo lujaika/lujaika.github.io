@@ -236,7 +236,7 @@ const PAGES = {
     <p>Выберите вид игры, дату и свободный интервал в расписании. Шаги времени — 30 минут. Бронирование оформляется в системе клуба.</p>
   </div>
   <div class="booking-frame">
-    <div id="bk-gate" class="bk-gate"><p>${COOKIES.frameText}</p><button class="btn" type="button" data-load-booking>${COOKIES.frameButton}</button></div>
+    <div class="bk-gate"><p>Онлайн-запись откроется на сайте нашей системы бронирования go2sport.ru.</p><a class="btn" href="https://go2sport.ru/clubs/luzhayka/" target="_blank" rel="noopener">Открыть онлайн-запись</a><p style="margin-top:18px">Или позвоните: <a href="tel:+79216501722">+7 (921) 650-17-22</a></p></div>
   </div>
 </div></section>`,
 

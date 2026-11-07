@@ -1,0 +1,234 @@
+/* ============================================================
+   Шапка, мобильное меню и анимация перехода между страницами
+   ============================================================ */
+
+.hd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 18px 0;
+  transition: background .5s,padding .5s;
+}
+
+.hd.sc {
+  background: rgba(10,20,16,.84);
+  backdrop-filter: blur(14px);
+  padding: 12px 0;
+}
+
+/* Шапка */
+
+.hd .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Логотип */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 600 24px var(--d);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+/* Логотип */
+
+.logo svg {
+  width: 32px;
+}
+
+/* Меню в шапке */
+
+.links {
+  display: flex;
+  gap: clamp(14px,2vw,34px);
+}
+
+.lk {
+  font-size: 11.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  padding: 6px 0;
+  opacity: .85;
+}
+
+.lk::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s;
+}
+
+.lk:hover,
+.lk.on {
+  opacity: 1;
+}
+
+.lk:hover::after,
+.lk.on::after {
+  transform: scaleX(1);
+}
+
+.lk.on {
+  color: var(--lime);
+}
+
+/* Кнопка «Бронировать корт» в шапке */
+
+.hb {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--lime);
+  color: var(--lime);
+  padding: 11px 22px;
+  border-radius: 99px;
+  font: 700 11.5px var(--s);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  transition: background .4s,color .4s;
+}
+
+/* Кнопка «Бронировать корт» в шапке */
+
+.hb svg {
+  width: 16px;
+}
+
+/* Кнопка «Бронировать корт» в шапке */
+
+.hb:hover {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+/* Кнопка «Меню» на телефоне */
+
+#mb {
+  display: none;
+  background: none;
+  border: 1px solid var(--ln);
+  color: #fff;
+  border-radius: 99px;
+  padding: 10px 18px;
+  font: 700 12px var(--s);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* Полноэкранное меню на телефоне */
+
+.mn {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: var(--n);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px clamp(24px,6vw,80px) 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s,visibility 0s .5s;
+}
+
+.mo .mn {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .5s;
+}
+
+/* Полноэкранное меню на телефоне */
+
+.mn a {
+  font: 600 clamp(32px,6vh,58px)/1.2 var(--d);
+  text-transform: uppercase;
+  width: max-content;
+  transform: translateY(24px);
+  opacity: 0;
+  transition: .7s;
+}
+
+.mo .mn a {
+  transform: none;
+  opacity: 1;
+  transition-delay: calc(.2s + var(--k)*.05s);
+}
+
+/* Полноэкранное меню на телефоне */
+
+.mn a.on,
+.mn a:hover {
+  color: var(--lime);
+}
+
+@media (max-width: 1240px) {
+  .links,
+  .hb {
+    display: none;
+  }
+  #mb {
+    display: block;
+  }
+}
+
+/* Анимация перехода между страницами (зелёный экран + Лужик) */
+
+#bars {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  pointer-events: none;
+}
+
+/* Анимация перехода между страницами (зелёный экран + Лужик) */
+
+#bars i {
+  position: absolute;
+  inset: 0;
+  background: #0E2A1F;
+  opacity: 0;
+}
+
+/* Лужик, пробегающий во время перехода */
+#bars .tr-lz {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: clamp(110px, 22vw, 200px);
+  margin-left: calc(clamp(110px, 22vw, 200px) / -2);
+  transform: translateX(-120vw);
+}
+
+/* Название страницы во время перехода */
+
+.wl {
+  position: fixed;
+  inset: 0;
+  z-index: 81;
+  display: grid;
+  place-items: center;
+  font: 700 clamp(40px,10vw,150px) var(--d);
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  padding: 0 20px;
+}

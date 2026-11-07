@@ -1,0 +1,752 @@
+/* ============================================================
+   Внутренние страницы: Услуги, Падел, Бадминтон, Цены, О клубе, Бронь, Контакты
+   ============================================================ */
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph {
+  position: relative;
+  min-height: 66vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 150px 0 clamp(50px,6vw,80px);
+  overflow: hidden;
+  background: var(--n2);
+}
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph .wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,rgba(10,20,16,.9),rgba(10,20,16,.3)),linear-gradient(0deg,rgba(10,20,16,.7),transparent 50%);
+}
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph .px {
+  z-index: 0;
+}
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph.blue::after {
+  background: linear-gradient(90deg,rgba(14,48,110,.92),rgba(14,48,110,.3));
+}
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph.red::after {
+  background: linear-gradient(90deg,rgba(100,36,22,.92),rgba(100,36,22,.3));
+}
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph h1 {
+  font-size: clamp(58px,11vw,170px);
+  font-weight: 700;
+  margin: 18px 0 18px;
+}
+
+/* Шапка внутренней страницы (большая картинка и заголовок) */
+
+.ph p {
+  max-width: 620px;
+  font-size: 19px;
+  opacity: .9;
+}
+
+/* Блок «фото + текст + кнопка» (страница «Услуги») */
+
+.sb {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px,5vw,80px);
+  align-items: center;
+  padding: clamp(60px,8vw,110px) 0;
+}
+
+/* Блок «фото + текст + кнопка» (страница «Услуги») */
+
+.sb.rev .px {
+  order: 2;
+}
+
+/* Блок «фото + текст + кнопка» (страница «Услуги») */
+
+.sb h2 {
+  font-size: clamp(36px,5vw,70px);
+  margin: 14px 0;
+}
+
+/* Блок «фото + текст + кнопка» (страница «Услуги») */
+
+.sb p {
+  margin: 0 0 18px;
+  max-width: 520px;
+  opacity: .82;
+}
+
+/* Блок «фото + текст + кнопка» (страница «Услуги») */
+
+.sb ul {
+  padding: 0;
+  margin: 0 0 26px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+/* Блок «фото + текст + кнопка» (страница «Услуги») */
+
+.sb li {
+  padding-left: 22px;
+  position: relative;
+}
+
+/* Блок «фото + текст + кнопка» (страница «Услуги») */
+
+.sb li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .7em;
+  width: 10px;
+  height: 1px;
+  background: var(--lime);
+}
+
+.lt .sb li::before {
+  background: var(--lm2);
+}
+
+.row {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.price {
+  font: 600 28px var(--d);
+  color: var(--lime);
+  text-transform: uppercase;
+}
+
+.lt .price {
+  color: var(--lm2);
+}
+
+/* Карточки цен */
+
+.gr {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,280px),1fr));
+  gap: 18px;
+}
+
+.pc {
+  border: 1px solid var(--ln);
+  border-radius: 18px;
+  padding: 28px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  background: rgba(255,255,255,.04);
+  transition: border-color .4s,transform .5s;
+}
+
+.pc:hover {
+  border-color: var(--lime);
+  transform: translateY(-4px);
+}
+
+.pc b {
+  font: 600 clamp(36px,3.6vw,52px)/1 var(--d);
+  color: var(--lime);
+}
+
+.pc small {
+  font-size: 14px;
+  opacity: .75;
+  line-height: 1.5;
+}
+
+.lt .pc {
+  border-color: rgba(10,20,16,.15);
+  background: #f5f7f2;
+}
+
+.lt .pc b {
+  color: var(--lm2);
+}
+
+/* Вкладки-фильтры (Теннис / Группы / Падел…) */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 34px;
+}
+
+.chip {
+  padding: 12px 24px;
+  border-radius: 99px;
+  border: 1px solid var(--ln);
+  font: 700 12px var(--s);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background .3s,color .3s;
+}
+
+.chip.on,
+.chip:hover {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+
+/* Вопросы и ответы (FAQ) */
+
+details {
+  border-top: 1px solid rgba(10,20,16,.18);
+  padding: 22px 0;
+}
+
+/* Вопросы и ответы (FAQ) */
+
+details:last-child {
+  border-bottom: 1px solid rgba(10,20,16,.18);
+}
+
+summary {
+  font: 500 clamp(20px,2.2vw,30px) var(--d);
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+summary::after {
+  content: "+";
+  color: var(--lm2);
+  transition: transform .4s;
+}
+
+/* Вопросы и ответы (FAQ) */
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+/* Вопросы и ответы (FAQ) */
+
+details p {
+  margin-top: 12px;
+  opacity: .8;
+  max-width: 720px;
+}
+
+/* История клуба по годам */
+
+.yr {
+  padding: 30px 0;
+  border-top: 1px solid var(--ln);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 20px 50px;
+  align-items: center;
+}
+
+/* История клуба по годам */
+
+.yr h2 {
+  font-size: clamp(70px,13vw,200px);
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--lime);
+}
+
+/* Схема слоёв покрытия */
+
+.scene {
+  perspective: 1400px;
+  height: clamp(340px,40vw,500px);
+  position: relative;
+}
+
+.stack {
+  --p: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(320px,66%);
+  aspect-ratio: 1.25;
+  margin: calc(min(320px,66%)*-.3) 0 0 calc(min(320px,66%)*-.5);
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) rotateZ(-32deg);
+}
+
+.ly {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.45);
+  background: rgba(255,255,255,.12);
+  transform: translateZ(calc(var(--i)*(3px + var(--p)*17px)));
+}
+
+.ly.c {
+  background: var(--bl);
+}
+
+.ly.u {
+  background: var(--lime);
+}
+
+.leg {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: grid;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.leg li {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.leg i {
+  width: 30px;
+  height: 12px;
+  border: 1px solid rgba(255,255,255,.45);
+  background: rgba(255,255,255,.12);
+}
+
+.leg .c i {
+  background: var(--bl);
+}
+
+.leg .u i {
+  background: var(--lime);
+}
+
+/* Две колонки */
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px,6vw,100px);
+  align-items: center;
+}
+
+/* Шаги «Как записаться» */
+
+.stp {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: clamp(24px,4vw,60px);
+}
+
+/* Шаги «Как записаться» */
+
+.stp b {
+  font: 600 70px/1 var(--d);
+  color: var(--lime);
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Шаги «Как записаться» */
+
+.stp p {
+  opacity: .8;
+  margin-top: 8px;
+}
+
+/* Событие */
+
+.ev {
+  display: grid;
+  grid-template-columns: .8fr 1.4fr;
+  gap: 30px 60px;
+}
+
+/* Событие */
+
+.ev time {
+  font: 600 clamp(44px,6vw,90px)/1 var(--d);
+  color: var(--lime);
+  text-transform: uppercase;
+}
+
+/* Контакты: адрес, телефон, почта */
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 60px;
+}
+
+/* Контакты: адрес, телефон, почта */
+
+.info>* {
+  padding: 26px 0;
+  border-top: 1px solid var(--ln);
+  display: block;
+}
+
+/* Контакты: адрес, телефон, почта */
+
+.info small {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  opacity: .6;
+  margin-bottom: 8px;
+}
+
+/* Контакты: адрес, телефон, почта */
+
+.info b {
+  font: 600 clamp(24px,3vw,42px)/1.15 var(--d);
+  text-transform: uppercase;
+}
+
+/* Страница бронирования: корты, время, форма */
+
+.bk {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(30px,5vw,70px);
+  align-items: start;
+}
+
+/* Страница бронирования: корты, время, форма */
+
+.bk h3 {
+  margin: 36px 0 16px;
+  font-size: 26px;
+}
+
+/* Страница бронирования: корты, время, форма */
+
+.bk h3:first-child {
+  margin-top: 0;
+}
+
+.ct {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
+  gap: 12px;
+}
+
+.ct button {
+  border: 1px solid var(--ln);
+  background: var(--n2);
+  color: #fff;
+  border-radius: 16px;
+  padding: 0 0 10px;
+  cursor: pointer;
+  font: 700 13px var(--s);
+  overflow: hidden;
+  transition: border-color .3s,transform .4s;
+}
+
+.ct button svg {
+  display: block;
+  width: 100%;
+}
+
+.ct button span {
+  display: block;
+  margin-top: 8px;
+}
+
+.ct button:hover {
+  transform: translateY(-3px);
+}
+
+.ct button.on {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 1px var(--lime);
+}
+
+.tm {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(78px,1fr));
+  gap: 8px;
+}
+
+.tm button {
+  padding: 11px 0;
+  border-radius: 12px;
+  border: 1px solid var(--ln);
+  background: none;
+  color: #fff;
+  font: 700 14px var(--s);
+  cursor: pointer;
+}
+
+.tm button.on {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+}
+
+.tm button:hover {
+  border-color: var(--lime);
+}
+
+/* Страница бронирования: корты, время, форма */
+
+.bk input[type=date],
+.bk input[type=text],
+.bk input[type=tel] {
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--ln);
+  color: #fff;
+  font: 500 18px var(--s);
+  padding: 14px 16px;
+  border-radius: 14px;
+  width: 100%;
+  outline: 0;
+  color-scheme: dark;
+}
+
+/* Страница бронирования: корты, время, форма */
+
+.bk input:focus {
+  border-color: var(--lime);
+}
+
+/* Карточка с формой заявки */
+
+.sm {
+  position: sticky;
+  top: 100px;
+  border-radius: 22px;
+  padding: 28px;
+  background: var(--lime);
+  color: var(--ink);
+  display: grid;
+  gap: 12px;
+}
+
+/* Карточка с формой заявки */
+
+.sm b {
+  font: 600 34px/1.1 var(--d);
+  text-transform: uppercase;
+}
+
+/* Карточка с формой заявки */
+
+.sm input[type=text],
+.sm input[type=tel] {
+  background: #fff;
+  border: 0;
+  color: var(--ink);
+}
+
+/* Карточка с формой заявки */
+
+.sm .btn {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* Карточка с формой заявки */
+
+.sm .btn:hover {
+  color: var(--ink);
+  background: transparent;
+}
+
+/* Карточка с формой заявки */
+
+.sm .ck {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.ok {
+  font: 600 clamp(30px,3.6vw,50px)/1.1 var(--d);
+  text-transform: uppercase;
+  animation: up .8s both;
+}
+
+/* ============================================================
+   Страница тренера (#/coach/…) и страница «Политика конфиденциальности»
+   ============================================================ */
+
+.cp {
+  padding: clamp(120px,12vw,160px) 0 clamp(60px,8vw,110px);
+  background: var(--n);
+}
+
+/* Ссылка «← Все тренеры» */
+
+.cp-back {
+  display: inline-block;
+  margin-bottom: clamp(24px,3.5vw,48px);
+  font: 700 12px var(--s);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .75;
+  transition: opacity .3s,color .3s;
+}
+
+.cp-back:hover {
+  opacity: 1;
+  color: var(--lime);
+}
+
+/* Фото слева, данные справа */
+
+.cp-g {
+  display: grid;
+  grid-template-columns: minmax(260px,.8fr) 1.4fr;
+  gap: clamp(30px,5vw,80px);
+  align-items: start;
+}
+
+.cp h1 {
+  font-size: clamp(38px,5.2vw,78px);
+  font-weight: 600;
+  margin: 16px 0 clamp(26px,3vw,40px);
+}
+
+/* Фото тренера; если фото нет, показываются крупные инициалы */
+
+.cp-ph {
+  background: radial-gradient(circle at 30% 20%,#1b3a2b,var(--n2) 70%);
+}
+
+.cp-ph span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 600 clamp(80px,12vw,170px) var(--d);
+  color: var(--lime);
+  opacity: .9;
+}
+
+/* Данные тренера: образование, стаж, достижения */
+
+.cp-info {
+  margin: 0 0 26px;
+  display: grid;
+  border-bottom: 1px solid var(--ln);
+}
+
+.cp-info>div {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 6px 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--ln);
+}
+
+.cp-info dt {
+  padding-top: 4px;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+
+.cp-info dd {
+  margin: 0;
+}
+
+/* Свободное описание тренера */
+
+.cp-p {
+  max-width: 640px;
+  margin-bottom: 14px;
+  opacity: .85;
+}
+
+/* Политика конфиденциальности */
+
+.doc h1 {
+  margin-bottom: 18px;
+}
+
+.doc h3 {
+  margin: 38px 0 12px;
+  font-size: 24px;
+}
+
+.doc p {
+  margin-bottom: 12px;
+  max-width: 720px;
+  opacity: .82;
+}
+
+
+/* Онлайн-календарь Go2Sport на странице бронирования */
+.booking-intro {
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+.booking-intro h2 {
+  margin: 14px 0;
+}
+.booking-intro p {
+  max-width: 680px;
+  opacity: .8;
+}
+.booking-frame {
+  width: 100%;
+  height: min(78vh, 920px);
+  min-height: 620px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(255,255,255,.12);
+}
+.booking-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+.booking-fallback {
+  margin-top: 18px;
+  opacity: .8;
+}
+.booking-fallback a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .booking-frame {
+    height: 78vh;
+    min-height: 680px;
+    border-radius: 12px;
+  }
+}

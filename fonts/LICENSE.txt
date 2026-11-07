@@ -1,0 +1,1 @@
+Шрифты Oswald, Manrope и Rubik Mono One (файлы .woff2 с cdn.jsdelivr.net/npm/@fontsource) распространяются по лицензии SIL Open Font License 1.1 (https://openfontlicense.org). Их можно использовать на сайте, в том числе в коммерческих целях, и хранить на своём сервере.

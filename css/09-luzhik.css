@@ -1,0 +1,156 @@
+/* ============================================================
+   Лужик: переходы между разделами и Лужик на главной
+   Разделитель .dv — нулевой высоты, лежит ровно на стыке двух блоков;
+   Лужик стоит на стыке (половина в верхнем блоке, половина в нижнем).
+   ============================================================ */
+
+html { overflow-x: clip; }
+body { overflow-x: clip; }
+
+.dv {
+  position: relative;
+  height: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+.dv-i {
+  position: absolute;
+  top: -52px;
+  left: 0;
+  width: 104px;
+  height: 104px;
+}
+.dv-i img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.28));
+}
+.dv:not(.in) .dv-i,
+.dv:not(.in) .dv-i img,
+.dv:not(.in) .dv-ball { animation-play-state: paused; }
+
+/* мячик (рисуется стилями) */
+.dv-ball {
+  position: absolute;
+  top: -11px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 28%, #f6ffa8, #cdf24a 45%, #8fb300);
+  box-shadow: 0 3px 5px rgba(0,0,0,.3);
+  overflow: hidden;
+}
+.dv-ball::before,
+.dv-ball::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 100%;
+  height: 130%;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.9);
+}
+.dv-ball::before { left: -62%; }
+.dv-ball::after  { left: 62%; }
+
+/* 1. бежит через весь экран */
+.dv-run .dv-i { animation: dv-run 9s linear infinite; }
+.dv-run .dv-i img { animation: dv-bob .36s ease-in-out infinite alternate; }
+@keyframes dv-run { from { transform: translateX(-130px); } to { transform: translateX(100vw); } }
+@keyframes dv-bob { to { transform: translateY(-7px) rotate(3deg); } }
+
+/* 2. выглядывает из-за левого края */
+.dv-peek .dv-i { animation: dv-peek 6s ease-in-out infinite; }
+@keyframes dv-peek {
+  0%, 12%  { transform: translateX(-80%); }
+  32%, 70% { transform: translateX(-4%) rotate(4deg); }
+  90%, 100% { transform: translateX(-80%); }
+}
+
+/* 3. прыгает и подбрасывает мяч */
+.dv-jump .dv-i { left: 12%; animation: dv-hop 1.8s cubic-bezier(.3,0,.4,1) infinite; }
+.dv-jump .dv-ball { left: calc(12% + 96px); animation: dv-ballhop 1.8s cubic-bezier(.3,0,.4,1) infinite; }
+@keyframes dv-hop { 0%, 100% { transform: translateY(0) scale(1.06, .94); } 40% { transform: translateY(-26px) scale(.97, 1.03); } 80% { transform: translateY(0) scale(1.06, .94); } }
+@keyframes dv-ballhop { 0%, 100% { transform: translateY(40px); } 40% { transform: translateY(-46px); } 80% { transform: translateY(40px); } }
+
+/* 4. мяч катится к Лужику */
+.dv-roll .dv-i { left: auto; right: 7%; animation: dv-wait 2.4s ease-in-out infinite alternate; }
+.dv-roll .dv-ball { top: 28px; animation: dv-roll 5s linear infinite; }
+@keyframes dv-wait { to { transform: translateY(-5px) rotate(-3deg); } }
+@keyframes dv-roll { from { transform: translateX(-30px) rotate(0); } to { transform: translateX(calc(93vw - 130px)) rotate(900deg); } }
+
+/* 5. качается с кубком */
+.dv-sway .dv-i { left: 68%; animation: dv-sway 3s ease-in-out infinite alternate; transform-origin: 50% 90%; }
+@keyframes dv-sway { from { transform: rotate(-5deg); } to { transform: rotate(5deg) translateY(-6px); } }
+
+/* 6. радуется */
+.dv-bounce .dv-i { left: 28%; animation: dv-hop 1.2s ease-in-out infinite; }
+
+/* 7. разминка: шаг вправо-влево */
+.dv-shuffle .dv-i { left: 45%; animation: dv-shuf 2.6s ease-in-out infinite alternate; }
+@keyframes dv-shuf { from { transform: translateX(-46px) rotate(-3deg); } to { transform: translateX(46px) rotate(3deg); } }
+
+/* Линия под маркером раздела («— О клубе») превращается в дорожку из мячиков */
+.mk { border-bottom: 0; position: relative; }
+.mk::after {
+  content: "";
+  flex: 1;
+  height: 8px;
+  margin-left: 6px;
+  background: radial-gradient(circle, currentColor 1.8px, transparent 2.4px) 0 50% / 14px 8px repeat-x;
+  opacity: .45;
+}
+
+/* Тонкие линии у подвала, полосы фактов и колонок преимуществ убраны */
+footer { border-top: 0; }
+.facts { border-top: 0; }
+.ft > div { border-left: 0; }
+.ft > div { padding-left: 0; }
+@media (min-width: 901px) { .ft > div:nth-child(even) { padding-left: 34px; } }
+@media (max-width: 900px) { .ft > div { border-top: 0; padding-top: 0; } }
+
+/* Лужик на главном экране */
+.hero-lz {
+  position: absolute;
+  z-index: 3;
+  right: clamp(12px, 7vw, 120px);
+  bottom: 140px;
+  width: clamp(96px, 17vw, 250px);
+  height: auto;
+  pointer-events: none;
+  animation: hero-wave 3.2s ease-in-out infinite alternate;
+  transform-origin: 50% 90%;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,.4));
+}
+@keyframes hero-wave { from { transform: rotate(-4deg) translateY(0); } to { transform: rotate(4deg) translateY(-10px); } }
+@media (max-width: 900px) { .hero-lz { bottom: 170px; right: 10px; } }
+
+/* Лужик у кнопки записи (финальный блок) */
+.cta-lz {
+  position: absolute;
+  z-index: 3;
+  right: clamp(10px, 8vw, 140px);
+  bottom: clamp(24px, 5vw, 70px);
+  width: clamp(120px, 20vw, 300px);
+  height: auto;
+  pointer-events: none;
+  animation: hero-wave 2.6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,.3));
+}
+@media (max-width: 900px) {
+  .cta2 .ball3 { top: auto; bottom: -70px; right: -70px; width: 230px; }
+  .cta-lz { width: 130px; bottom: 16px; right: 8px; }
+}
+
+@media (max-width: 600px) {
+  .dv-i { top: -42px; width: 84px; height: 84px; }
+  .dv-jump .dv-ball { left: calc(12% + 78px); }
+}
+
+/* Длинные слова (политика конфиденциальности) не должны ломать ширину на телефоне */
+.cp h1 { font-size: clamp(30px, 8vw, 72px); overflow-wrap: anywhere; }
+
+/* Содержимое страницы не вылезает за ширину экрана (повёрнутая бегущая строка, мяч, Лужик на бегу) */
+#app { overflow-x: clip; }

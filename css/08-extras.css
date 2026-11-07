@@ -1,0 +1,370 @@
+/* ============================================================
+   Мяч-игра, бегущая строка, цветовые варианты блоков
+   Файл подключается последним, поэтому его правила имеют приоритет над предыдущими.
+   ============================================================ */
+
+/* Мяч-игра на главном экране */
+
+.pball {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 26%,#f6ffa8,var(--lime) 42%,#8fb300 100%);
+  box-shadow: inset -10px -14px 30px rgba(0,60,0,.35);
+}
+
+/* Мяч-игра на главном экране */
+
+.pball:active {
+  cursor: grabbing;
+}
+
+/* Мяч-игра на главном экране */
+
+.pball::before,
+.pball::after {
+  content: "";
+  position: absolute;
+  top: -4%;
+  width: 100%;
+  height: 108%;
+  border-radius: 50%;
+  border: clamp(5px,.8vw,10px) solid rgba(255,255,255,.92);
+}
+
+/* Мяч-игра на главном экране */
+
+.pball::before {
+  left: -68%;
+}
+
+/* Мяч-игра на главном экране */
+
+.pball::after {
+  left: 68%;
+}
+
+/* Тень мяча */
+
+.psh {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  border-radius: 50%;
+  background: #000;
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* Подсказка «Ударьте по мячу» */
+
+.hint {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 6;
+  pointer-events: none;
+  white-space: nowrap;
+  font: 700 12px var(--s);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--lime);
+  padding: 8px 16px;
+  border-radius: 99px;
+  transition: opacity .5s;
+}
+
+/* Счётчик ударов */
+
+.cnt {
+  position: absolute;
+  right: clamp(20px,4vw,56px);
+  bottom: 150px;
+  z-index: 6;
+  font: 700 clamp(64px,9vw,140px)/.9 var(--d);
+  color: var(--lime);
+  text-align: right;
+  pointer-events: none;
+}
+
+/* Счётчик ударов */
+
+.cnt small {
+  display: block;
+  font: 700 11px var(--s);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: .85;
+  margin-bottom: 6px;
+}
+
+/* Вращающаяся круглая печать */
+
+.badge {
+  position: absolute;
+  right: clamp(20px,6vw,100px);
+  top: 112px;
+  width: 140px;
+  height: 140px;
+  z-index: 3;
+  animation: sp 18s linear infinite;
+}
+
+/* Вращающаяся круглая печать */
+
+.badge text {
+  font: 600 12.5px var(--d);
+  fill: #fff;
+  letter-spacing: .14em;
+}
+
+@keyframes sp {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Бегущая строка «Теннис • Падел • …» */
+
+.tk {
+  position: relative;
+  z-index: 6;
+  background: var(--lime);
+  color: var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 16px 0;
+  transform: rotate(-1.6deg);
+  margin: -26px -3% 0;
+}
+
+/* Бегущая строка «Теннис • Падел • …» */
+
+.tk div {
+  display: inline-block;
+  animation: tkm 30s linear infinite;
+  font: 700 clamp(34px,5vw,64px)/1 var(--d);
+  text-transform: uppercase;
+}
+
+/* Бегущая строка «Теннис • Падел • …» */
+
+.tk svg {
+  width: .75em;
+  height: .75em;
+  vertical-align: -.05em;
+  margin: 0 .55em;
+}
+
+@keyframes tkm {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Салатовый блок «Почему Лужайка» */
+
+.lime {
+  background: var(--lime);
+  color: var(--ink);
+  padding-top: clamp(90px,10vw,150px);
+}
+
+/* Салатовый блок «Почему Лужайка» */
+
+.lime .lb {
+  color: var(--ink);
+}
+
+/* Салатовый блок «Почему Лужайка» */
+
+.lime .lm {
+  color: #14402f;
+}
+
+/* Салатовый блок «Почему Лужайка» */
+
+.lime .ft>div {
+  border-left-color: rgba(10,20,16,.3);
+}
+
+/* Салатовый блок «Почему Лужайка» */
+
+.lime .ft svg {
+  stroke: var(--ink);
+}
+
+/* Салатовый блок «Почему Лужайка» */
+
+.lime .ft p {
+  opacity: .8;
+}
+
+/* Зелёный блок с тренерами */
+
+.grn {
+  background: var(--gr);
+  color: var(--cr);
+}
+
+/* Зелёный блок с тренерами */
+
+.grn .cd a {
+  border-color: rgba(244,240,200,.35);
+  background: rgba(0,0,0,.14);
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .lb {
+  color: var(--ink);
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .lm {
+  color: #14402f;
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .btn {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .btn:hover {
+  color: var(--ink);
+  background: transparent;
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .bt i {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .bt:hover i {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .ball3 {
+  left: auto;
+  right: -6%;
+  top: 10%;
+  width: clamp(260px,36vw,540px);
+  background: radial-gradient(circle at 30% 26%,#3a5a48,#0a1410 70%);
+  box-shadow: 0 50px 90px -20px rgba(10,20,16,.5);
+}
+
+/* Финальный блок: салатовый, с тёмным мячом */
+
+.cta2 .ball3::before,
+.cta2 .ball3::after {
+  border-color: var(--lime);
+}
+
+/* Логотип: вращение мяча при наведении */
+
+.logo:hover svg {
+  animation: sp 1.2s linear;
+}
+
+@media (max-width: 900px) {
+  .badge {
+    display: none;
+  }
+  .cnt {
+    bottom: 130px;
+  }
+}
+/* Фото тренеров вместо инициалов */
+.ini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* Фото тренеров в списке */
+.coach-list .ini {
+    width: 52px !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0 !important;
+}
+
+.coach-list .ini img {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 0 !important;
+}
+/* Прямоугольные фото тренеров */
+.ini {
+    width: 52px;
+    height: 100px;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0 !important;
+}
+
+.ini img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 !important;
+}
+/* Увеличиваем фото тренеров в карточках */
+.coach-list .ini {
+    width: 52px !important;
+    height: 100px !important;
+    min-height: 90px !important;
+    flex: 0 0 52px !important;
+    overflow: hidden !important;
+    border-radius: 0 !important;
+}
+
+.coach-list .ini img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+}

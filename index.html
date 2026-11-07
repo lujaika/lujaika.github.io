@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- Заголовок вкладки и описание для поисковиков (Яндекс, Google).
+     Это единственный текст, который лежит не в js/content.js.
+     Если поменяете телефон, адрес или число кортов, обновите описание ниже. -->
+<title>Теннисный клуб «Лужайка» — Санкт-Петербург</title>
+<meta name="description" content="6 крытых кортов HARD ULTRACUSHION, тренировочная стенка, группы для детей и взрослых, турниры. До 23:00, пр. Стачек, 45/2, Санкт-Петербург.">
+
+<!-- Значок вкладки браузера (салатовый мяч) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23cdf24a'/%3E%3Cpath d='M5 9c8 3 8 11 0 14M27 9c-8 3-8 11 0 14' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+
+<!-- Шрифты лежат на сайте (папка fonts/), внешние сервисы не нужны -->
+<link rel="stylesheet" href="css/00-fonts.css">
+
+<!-- ОФОРМЛЕНИЕ. Порядок важен: файлы ниже перекрывают файлы выше. -->
+<link rel="stylesheet" href="css/01-base.css">
+<link rel="stylesheet" href="css/02-header.css">
+<link rel="stylesheet" href="css/03-photos.css">
+<link rel="stylesheet" href="css/04-home.css">
+<link rel="stylesheet" href="css/05-inner-pages.css">
+<link rel="stylesheet" href="css/06-footer.css">
+<link rel="stylesheet" href="css/07-responsive.css">
+<link rel="stylesheet" href="css/08-extras.css">
+<link rel="stylesheet" href="css/09-luzhik.css">
+<link rel="stylesheet" href="css/10-legal.css">
+</head>
+<body>
+
+<!-- Шапка и меню заполняются скриптом (js/components.js) из списка NAV в content.js -->
+<header class="hd" id="hd"></header>
+<nav class="mn" id="mn" aria-label="Меню"></nav>
+
+<!-- Служебные слои для анимации перехода между страницами -->
+<div id="bars"></div>
+<div class="wl"></div>
+
+<!-- Сюда скрипт подставляет содержимое страниц (js/pages.js) -->
+<main id="app"></main>
+
+<noscript>
+  <p style="padding:120px 24px 40px;max-width:640px;margin:0 auto;color:#fff">
+    Теннисный клуб «Лужайка», пр. Стачек, 45/2, Санкт-Петербург. Ежедневно до 23:00 (будни с 7:00, выходные с 8:00).
+    Телефон: <a href="tel:+79216501722" style="text-decoration:underline">+7 (921) 650-17-22</a>.
+    Для работы сайта включите JavaScript.
+  </p>
+</noscript>
+
+<!-- СКРИПТЫ. Порядок важен: каждый следующий использует то, что описано в предыдущих.
+     content.js    — все тексты, цены, контакты (ЭТОТ ФАЙЛ ВЫ РЕДАКТИРУЕТЕ)
+     images.js     — показ фото
+     components.js — мелкие блоки (шапка, карточки, подвал)
+     pages.js      — сборка страниц
+     booking.js    — страница бронирования
+     ball-game.js  — мяч на главном экране
+     app.js        — переходы между страницами; запускает сайт -->
+<script src="js/content.js"></script>
+<script src="js/images.js"></script>
+<script src="js/components.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/ball-game.js"></script>
+<script src="js/luzhik.js"></script>
+<script src="js/cookies.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

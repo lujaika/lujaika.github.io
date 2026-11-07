@@ -1,0 +1,52 @@
+/* ============================================================
+   Подвал сайта
+   ============================================================ */
+
+/* Подвал сайта */
+
+footer {
+  padding: 64px 0 36px;
+  font-size: 15px;
+  background: #060c09;
+  border-top: 1px solid var(--ln);
+}
+
+/* Подвал сайта */
+
+footer .wrap {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+}
+
+/* Подвал сайта */
+
+footer h3 {
+  font-size: 34px;
+  letter-spacing: .2em;
+  margin-bottom: 12px;
+}
+
+/* Подвал сайта */
+
+footer a {
+  display: block;
+  opacity: .8;
+}
+
+/* Подвал сайта */
+
+footer a:hover {
+  color: var(--lime);
+  opacity: 1;
+}
+
+/* Подвал сайта */
+
+footer small {
+  grid-column: 1/-1;
+  opacity: .55;
+  font-size: 13px;
+  border-top: 1px solid var(--ln);
+  padding-top: 22px;
+}

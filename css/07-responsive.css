@@ -1,0 +1,66 @@
+/* ============================================================
+   Адаптив для телефона и планшета
+   ============================================================ */
+
+/* Адаптив: как выглядит сайт на телефоне и планшете (до 900px) и отключение анимации по настройке системы */
+
+@media (max-width: 900px) {
+  .fx,
+  .ab,
+  .st,
+  .pp,
+  .sb,
+  .two,
+  .stp,
+  .ev,
+  .info,
+  .bk,
+  .yr,
+  .cp-g,
+  .cp-info>div,
+  footer .wrap {
+    grid-template-columns: 1fr;
+  }
+  .cp-ph {
+    max-width: 360px;
+  }
+  .sb.rev .px {
+    order: 0;
+  }
+  .gg {
+    grid-template-columns: 1fr 1fr;
+  }
+  .side {
+    display: none;
+  }
+  .sm {
+    position: static;
+  }
+  .ft {
+    grid-template-columns: 1fr;
+  }
+  .ft>div {
+    border-left: 0;
+    border-top: 1px solid var(--ln);
+    padding: 20px 0 0;
+  }
+}
+
+/* Адаптив: как выглядит сайт на телефоне и планшете (до 900px) и отключение анимации по настройке системы */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none!important;
+    transition: none!important;
+  }
+  .ln span,
+  .rv,
+  .hero .lb,
+  .hero .sub,
+  .hero .cta {
+    opacity: 1;
+    transform: none;
+  }
+}

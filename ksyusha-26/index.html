@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Ксюше 26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;700&family=Caveat:wght@600&display=swap">
+<style>
+/* Сцены по очереди, как квест: конверт → свечи → 4 подарка → полароиды и письмо. Один «изумрудно-золотой» мир, без светлой темы. */
+:root{
+  --ink:#0d261f; --ink2:#14382d; --ink3:#1d4a3c;
+  --gold:#e9c46f; --gold2:#f6dea0;
+  --blush:#f3a6b8; --mint:#9be3bd; --cream:#fbf3e4; --muted:#b9cfc4;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --hand:"Caveat","Segoe Print","Comic Sans MS",cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+html,body{height:100%}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 50% -10%,var(--ink3),transparent 60%),radial-gradient(circle at 10% 90%,#2a1d22 0,transparent 40%);background-attachment:fixed}
+.stage{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;
+  padding-block:32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));animation:rise .7s ease both}
+@keyframes rise{from{opacity:.0;transform:translateY(18px)}to{opacity:1;transform:none}}
+h1,h2{font-family:var(--display);font-weight:800;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(22px,6vw,34px)}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.lead{max-width:34ch;color:var(--muted);margin:0}
+.btn{font:700 15px var(--body);border:0;border-radius:999px;padding:14px 26px;background:var(--gold);color:var(--ink);cursor:pointer;
+  box-shadow:0 6px 0 #a7843a;transition:transform .12s, box-shadow .12s}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #a7843a}
+.btn.ghost{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 2px var(--ink3)}
+:focus-visible{outline:3px solid var(--blush);outline-offset:3px}
+
+/* Конверт */
+.env-wrap{perspective:900px;cursor:pointer;background:none;border:0;padding:0;color:inherit}
+.env{position:relative;width:min(320px,84vw);aspect-ratio:1.45;background:#f1e2c6;border-radius:6px;box-shadow:0 30px 60px #0008}
+.env::after{content:"";position:absolute;inset:0;background:#e5d1ae;clip-path:polygon(0 100%,50% 48%,100% 100%);border-radius:0 0 6px 6px;z-index:3}
+.env::before{content:"";position:absolute;inset:0;background:#ead9b9;clip-path:polygon(0 0,50% 52%,0 100%,100% 100%,50% 52%,100% 0);z-index:2}
+.flap{position:absolute;left:0;right:0;top:0;height:56%;background:#dcc59a;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;z-index:4;transition:transform .7s ease}
+.seal{position:absolute;left:50%;top:44%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;z-index:5;
+  background:radial-gradient(circle at 35% 30%,#d9566f,#9b1f37);display:grid;place-items:center;font:800 26px var(--display);color:#f7c9d2;
+  box-shadow:0 3px 0 #6d1426,0 8px 18px #0006;transition:opacity .3s, transform .3s}
+.letter{position:absolute;left:7%;right:7%;top:8%;bottom:8%;background:var(--cream);border-radius:4px;z-index:1;color:var(--ink);
+  display:grid;place-items:center;font:600 30px var(--hand);transition:transform .8s .45s cubic-bezier(.2,.8,.2,1)}
+.env-wrap.open .flap{transform:rotateX(180deg);z-index:0}
+.env-wrap.open .seal{opacity:0;transform:scale(1.6)}
+.env-wrap.open .letter{transform:translateY(-62%)}
+.to{font:600 34px var(--hand);color:var(--gold2)}
+.tap{font-size:13px;color:var(--muted);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.4}}
+
+/* Свечи */
+.hero-photo{width:min(230px,62vw);aspect-ratio:1;border-radius:50%;object-fit:cover;border:4px solid var(--gold);box-shadow:0 0 0 10px #e9c46f22,0 20px 50px #0008}
+.big{font-size:clamp(46px,15vw,92px);line-height:.95}
+.big span{color:var(--gold)}
+.big small{display:block;margin-top:10px;font-size:.42em;line-height:1.15;color:var(--gold)}
+.cake{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:28px}
+.candles{display:flex;gap:18px;align-items:flex-end;position:relative;z-index:2}
+.candle{position:relative;font:800 74px/0.9 var(--display);color:var(--blush);text-shadow:0 4px 0 #b86a7d;background:none;border:0;padding:0;cursor:pointer}
+.flame{position:absolute;left:50%;top:-40px;width:20px;height:32px;margin-left:-10px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  background:radial-gradient(circle at 50% 70%,#fff8d6,#ffd25e 45%,#ff8a3d 75%,transparent 76%);filter:drop-shadow(0 0 14px #ffb84d);
+  animation:flick .18s infinite alternate;transform-origin:50% 100%}
+@keyframes flick{to{transform:scale(.92,1.06) rotate(2deg)}}
+.candle.out .flame{animation:none;opacity:0;transform:scale(.2);transition:.3s}
+.candle.out .flame::after{content:"";position:absolute;left:6px;bottom:20px;width:8px;height:30px;border-radius:50%;background:#ffffff40;filter:blur(4px);animation:smoke 1.2s forwards}
+@keyframes smoke{from{opacity:1}to{opacity:0;transform:translateY(-30px) scaleX(2)}}
+.tier{width:220px;height:46px;border-radius:10px 10px 6px 6px;background:var(--cream);margin-top:-6px;position:relative;
+  box-shadow:inset 0 -10px 0 #f0dcc0}
+.tier::before{content:"";position:absolute;left:0;right:0;top:0;height:16px;background:radial-gradient(circle at 11px 0,var(--blush) 10px,transparent 11px) 0 0/22px 18px;}
+.tier.b{width:270px;height:56px;background:var(--blush);box-shadow:inset 0 -10px 0 #d98aa0}
+.tier.b::before{background:radial-gradient(circle at 11px 0,var(--cream) 10px,transparent 11px) 0 0/22px 18px}
+.plate{width:310px;max-width:90vw;height:12px;border-radius:50%;background:var(--gold);margin-top:-2px}
+
+/* Подарки */
+.gifts{display:grid;grid-template-columns:repeat(2,minmax(0,150px));gap:18px}
+.gift{position:relative;aspect-ratio:1;border:0;border-radius:14px;cursor:pointer;color:var(--ink);font:800 13px var(--display);
+  display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;transition:transform .2s}
+.gift:hover{transform:translateY(-4px) rotate(-2deg)}
+.gift::before{content:"";position:absolute;inset:0;border-radius:14px;
+  background:linear-gradient(90deg,transparent 43%,var(--rib) 43% 57%,transparent 57%),linear-gradient(transparent 30%,var(--rib) 30% 42%,transparent 42%),var(--box)}
+.gift::after{content:"";position:absolute;top:-14px;left:50%;width:46px;height:26px;margin-left:-23px;
+  background:radial-gradient(ellipse at 25% 60%,var(--rib) 40%,transparent 42%),radial-gradient(ellipse at 75% 60%,var(--rib) 40%,transparent 42%)}
+.gift span{position:relative;background:var(--cream);padding:4px 10px;border-radius:999px}
+.gift .ic{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);font-size:34px;z-index:1;filter:drop-shadow(0 2px 3px #0005)}
+.gift.done{opacity:.55}
+.gift.done span::after{content:" ✓"}
+.g1{--box:#2f8f63;--rib:var(--gold)} .g2{--box:var(--blush);--rib:var(--cream)} .g3{--box:var(--gold);--rib:#c4475f} .g4{--box:#6fa0d8;--rib:var(--blush)}
+
+/* Оверлей подарка */
+.ov{position:fixed;inset:0;z-index:30;background:#081a15f2;backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;overflow:hidden;
+  padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));animation:rise .35s ease both}
+.close{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));z-index:5;width:44px;height:44px;border-radius:50%;border:0;background:var(--ink3);color:var(--cream);font-size:22px;cursor:pointer}
+.wish{max-width:32ch;font-size:17px;margin:0;color:var(--cream)}
+.wish b{color:var(--gold)}
+.counter{font:800 clamp(30px,10vw,52px) var(--display);color:var(--mint);font-variant-numeric:tabular-nums;position:relative;z-index:2}
+.bill{position:absolute;top:-80px;width:96px;height:46px;border-radius:5px;background:linear-gradient(135deg,#7fd3a4,#3e9a6b);border:2px solid #d6f5e3;
+  color:#0d3b26;font:800 14px var(--display);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 14px #0006;animation:fall linear forwards;z-index:1;touch-action:manipulation}
+.bill.five{background:linear-gradient(135deg,#f0b38e,#c9714b);border-color:#ffe2cf;color:#4a1d0b}
+@keyframes fall{to{transform:translateY(calc(100vh + 160px)) rotate(var(--r))}}
+.pop{position:absolute;font:800 18px var(--display);color:var(--gold);pointer-events:none;animation:popup .8s forwards;z-index:3}
+@keyframes popup{to{transform:translateY(-50px);opacity:0}}
+
+.profile{width:min(340px,100%);background:var(--cream);color:var(--ink);border-radius:18px;padding:22px;text-align:left;box-shadow:0 20px 50px #0009}
+.profile h3{font:800 18px var(--display);margin:0 0 4px}
+.profile .ava{font-size:56px;text-align:center;margin-bottom:6px}
+.profile dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:14px 0 0;font-size:14px}
+.profile dt{color:#4b6a5e}
+.profile dd{margin:0;font-weight:700}
+.choice{display:flex;gap:14px;justify-content:center;position:relative;width:100%;min-height:60px}
+#runaway{position:relative;transition:transform .25s}
+
+.bar{width:min(340px,100%);height:18px;border-radius:999px;background:var(--ink3);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--gold));transition:width 3.2s ease}
+.ach{list-style:none;margin:0;padding:0;display:grid;gap:8px;width:min(340px,100%);text-align:left}
+.ach li{background:var(--ink2);border-radius:12px;padding:10px 14px;display:flex;gap:10px;align-items:center;opacity:.25;transition:.4s}
+.ach li.on{opacity:1;box-shadow:inset 0 0 0 1px var(--gold)}
+.ach li::before{content:"🔒"}
+.ach li.on::before{content:"🏆"}
+
+.orbit{position:relative;width:min(300px,80vw);aspect-ratio:1}
+.orbit img{position:absolute;width:38%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:3px solid var(--cream);box-shadow:0 8px 20px #0007;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.heart{position:absolute;bottom:-20px;font-size:22px;animation:up 2.4s ease-in forwards;pointer-events:none}
+@keyframes up{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+
+/* Финал */
+.stack{position:relative;width:min(290px,78vw);aspect-ratio:.82;margin:10px 0 18px;touch-action:pan-y;cursor:grab}
+.pol{position:absolute;inset:0;background:#fffdf7;padding:12px 12px 0;border-radius:4px;box-shadow:0 14px 34px #0009;transition:transform .45s ease, opacity .45s;user-select:none}
+.pol img{width:100%;aspect-ratio:1;object-fit:cover;display:block;pointer-events:none;background:#ddd}
+.pol p{margin:0;padding:10px 2px;font:600 24px/1.1 var(--hand);color:#2b2b2b}
+.letter2{max-width:560px;width:100%;background:var(--cream);color:var(--ink);border-radius:6px;padding:28px 24px;text-align:left;position:relative;box-shadow:0 20px 50px #0008;
+  background-image:repeating-linear-gradient(transparent 0 31px,#e7d7bb 31px 32px)}
+.letter2 p{margin:0 0 14px;font:600 25px/32px var(--hand)}
+.letter2 .sign{text-align:right;color:#a3304c;margin:18px 0 0}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.star{position:fixed;width:140px;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,#fff);z-index:40;pointer-events:none;animation:shoot 1.3s ease-out forwards}
+.star::after{content:"";position:absolute;right:-4px;top:-4px;width:11px;height:11px;border-radius:50%;background:#fff;box-shadow:0 0 18px 6px #fff8c8}
+@keyframes shoot{from{transform:translate(0,0) rotate(-25deg);opacity:1}to{transform:translate(-70vw,40vh) rotate(-25deg);opacity:0}}
+.mute{position:fixed;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:calc(12px + env(safe-area-inset-left,0px));z-index:20;width:40px;height:40px;border-radius:50%;border:0;background:var(--ink3);color:var(--cream);cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+
+<button class="mute" id="mute" aria-label="Звук">🔊</button>
+
+<!-- 1. Конверт -->
+<section class="stage" id="s-env">
+  <div class="eyebrow">12 ноября · срочная доставка</div>
+  <div class="to">Лично в руки Ксюше</div>
+  <button class="env-wrap" id="env" aria-label="Открыть конверт">
+    <div class="env"><div class="letter">С днём рождения!</div><div class="flap"></div><div class="seal">К</div></div>
+  </button>
+  <div class="tap">нажми на печать</div>
+</section>
+
+<!-- 2. Свечи -->
+<section class="stage" id="s-cake" hidden>
+  <img class="hero-photo" src="img/01.jpg" alt="Ксюша">
+  <div class="eyebrow">12 ноября</div>
+  <h1 class="big">Ксюша<span>,</span><br><small>с днём рождения!</small></h1>
+  <div class="cake" aria-label="Торт">
+    <div class="candles">
+      <button class="candle" data-c aria-label="Задуть свечу 2">2<i class="flame"></i></button>
+      <button class="candle" data-c aria-label="Задуть свечу 6">6<i class="flame"></i></button>
+    </div>
+    <div class="tier"></div><div class="tier b"></div><div class="plate"></div>
+  </div>
+  <p class="lead" id="cake-hint">Загадай желание и задуй свечи: нажми на каждый огонёк</p>
+  <button class="btn" id="to-gifts" hidden>Желание загадано. Открыть подарки</button>
+</section>
+
+<!-- 3. Подарки -->
+<section class="stage" id="s-gifts" hidden>
+  <div class="eyebrow">Комплект на 26-й год</div>
+  <h2>Четыре подарка. Открой все</h2>
+  <div class="gifts">
+    <button class="gift g1" data-g="money"><i class="ic">💸</i><span>Деньги</span></button>
+    <button class="gift g2" data-g="man"><i class="ic">💍</i><span>Муж</span></button>
+    <button class="gift g3" data-g="dream"><i class="ic">🚀</i><span>Мечты</span></button>
+    <button class="gift g4" data-g="friends"><i class="ic">👯‍♀️</i><span>Друзья</span></button>
+  </div>
+  <p class="lead" id="gifts-left">Осталось открыть: 4</p>
+  <button class="btn" id="to-final" hidden>Последний подарок</button>
+</section>
+
+<!-- 4. Финал -->
+<section class="stage" id="s-final" hidden>
+  <div class="eyebrow">Наш фотоархив</div>
+  <h2>Смахни фотку</h2>
+  <div class="stack" id="stack"></div>
+  <div class="letter2">
+    <p>Ксюша, с днем рождения. Я тебе желаю всего самого хорошего. Денег много. Главное счастье, чтобы все, что ты хотела, сбывалось.</p>
+    <p>Вообще не парься ни о чем. Тебе всего лишь 26. Это вообще ничего еще. У тебя еще вся жизнь впереди, ты все успеешь реализовать, не надо загоняться ни о чем. Это просто цифра в паспорте. Не надо строить себе рамки в голове, что ты чего-то не успела, не достигла и так далее.</p>
+    <p>У тебя все впереди, пусть все, чего ты пожелаешь, достигается максимально легко и просто, чтобы друзья твои тебе в этом помогали, чтобы все было круто, легко, весело, здорово. Работа, чтобы была та, о которой ты мечтаешь, чтобы приносила кайф и много денег.</p>
+    <p>Люблю, ценю, обожаю. С днем рождения!</p>
+    <p class="sign">Твоя самая лучшая и любимая Мила ❤</p>
+  </div>
+  <div class="row">
+    <button class="btn" id="wish">Загадать ещё желание</button>
+    <button class="btn ghost" id="again">Сначала</button>
+  </div>
+</section>
+
+<div id="ov-root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const boom=(o={})=>{ if(window.confetti) confetti(Object.assign({particleCount:140,spread:90,origin:{y:.6},colors:['#e9c46f','#f3a6b8','#9be3bd','#fbf3e4']},o)); };
+function show(id){document.querySelectorAll('.stage').forEach(s=>s.hidden=s.id!==id);scrollTo(0,0);}
+
+/* звук */
+let actx=null, muted=false;
+$('#mute').onclick=()=>{muted=!muted;$('#mute').textContent=muted?'🔇':'🔊';};
+function tune(){
+  if(muted) return;
+  try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();}catch(e){return;}
+  const N={G4:392,A4:440,B4:494,C5:523,D5:587,E5:659,F5:698,G5:784};
+  const m=[['G4',.3],['G4',.1],['A4',.4],['G4',.4],['C5',.4],['B4',.8],['G4',.3],['G4',.1],['A4',.4],['G4',.4],['D5',.4],['C5',.8],
+           ['G4',.3],['G4',.1],['G5',.4],['E5',.4],['C5',.4],['B4',.4],['A4',.8],['F5',.3],['F5',.1],['E5',.4],['C5',.4],['D5',.4],['C5',1]];
+  let t=actx.currentTime+.05;
+  m.forEach(([n,d])=>{const o=actx.createOscillator(),g=actx.createGain();o.type='triangle';o.frequency.value=N[n];
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d*.95);
+    o.connect(g).connect(actx.destination);o.start(t);o.stop(t+d);t+=d;});
+}
+function blip(f=880){ if(muted) return; try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();const o=actx.createOscillator(),g=actx.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.12,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.15);o.connect(g).connect(actx.destination);o.start();o.stop(actx.currentTime+.16);}catch(e){} }
+
+/* 1 → 2 */
+$('#env').onclick=function(){ if(this.classList.contains('open')) return; this.classList.add('open'); blip(660);
+  setTimeout(()=>{boom({particleCount:80});show('s-cake');},1500); };
+
+/* свечи */
+let out=0;
+document.querySelectorAll('[data-c]').forEach(c=>c.onclick=()=>{ if(c.classList.contains('out')) return; c.classList.add('out'); out++; blip(500);
+  if(out===2){ $('#cake-hint').textContent='Ура! Желание принято в работу 🎉'; boom(); setTimeout(()=>boom({angle:60,origin:{x:0,y:.7}}),300); setTimeout(()=>boom({angle:120,origin:{x:1,y:.7}}),500); tune(); $('#to-gifts').hidden=false; }});
+$('#to-gifts').onclick=()=>show('s-gifts');
+
+/* подарки */
+const opened=new Set();
+function overlay(html,onClose){ const ov=document.createElement('div'); ov.className='ov'; ov.innerHTML='<button class="close" aria-label="Закрыть">✕</button>'+html;
+  $('#ov-root').appendChild(ov); ov.addEventListener('click',e=>{ if(!e.target.closest('.close')) return; ov._stop&&ov._stop();ov.remove();onClose&&onClose(); }); return ov; }
+function finishGift(key,btn){ opened.add(key); btn.classList.add('done'); const left=4-opened.size;
+  $('#gifts-left').textContent=left?`Осталось открыть: ${left}`:'Все подарки открыты!'; if(!left){$('#to-final').hidden=false;boom();} }
+
+const gifts={
+  money(ov){
+    ov.innerHTML+=`<div class="eyebrow" style="position:relative;z-index:2">Лови купюры!</div><div class="counter" id="bal">0 ₽</div><p class="wish" id="mw" style="position:relative;z-index:2">Нажимай на падающие деньги</p>`;
+    let bal=0,caught=0,done=false; const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
+    const spawn=()=>{ const b=document.createElement('button'); const five=Math.random()<.4; b.className='bill'+(five?' five':''); b.textContent=five?'5 000':'1 000';
+      b.style.left=Math.random()*(ov.clientWidth-100)+'px'; b.style.setProperty('--r',(Math.random()*80-40)+'deg'); b.style.animationDuration=(3+Math.random()*2.5)+'s';
+      b.onpointerdown=e=>{ if(done) return; bal+=five?5000:1000; caught++; $('#bal').textContent=fmt(bal); blip(900+caught*20);
+        const p=document.createElement('div'); p.className='pop'; p.textContent='+'+b.textContent; p.style.left=e.clientX-20+'px'; p.style.top=e.clientY-20+'px'; ov.appendChild(p); setTimeout(()=>p.remove(),800);
+        b.remove(); if(caught>=12) win(); };
+      b.addEventListener('animationend',()=>b.remove()); ov.appendChild(b); };
+    const iv=setInterval(spawn,380); ov._stop=()=>clearInterval(iv);
+    function win(){ done=true; $('#bal').textContent='∞ ₽'; $('#mw').innerHTML='Пусть деньги находят тебя <b>так же легко</b>, и в 26 их будет <b>столько, что некуда складывать</b>.'; boom({origin:{y:.4}}); }
+  },
+  man(ov){
+    ov.innerHTML+=`<div class="eyebrow">Анкета жениха · подобрано для Ксюши</div>
+    <div class="profile"><div class="ava">🤵🏻‍♂️</div><h3>Тот самый</h3><div style="font-size:13px;color:#4b6a5e">совпадение по всем пунктам: 100%</div>
+      <dl><dt>Доход</dt><dd>не помещается в графу</dd><dt>Яхта</dt><dd>есть, названа в честь тебя</dd><dt>Носит на руках</dt><dd>ежедневно</dd>
+      <dt>Цветы</dt><dd>без повода</dd><dt>Слушает</dt><dd>и правда слышит</dd><dt>Твои друзья</dt><dd>в восторге</dd></dl></div>
+    <div class="choice"><button class="btn" id="yes">Беру! 💍</button><button class="btn ghost" id="runaway">Подумаю</button></div>
+    <p class="wish" id="mm"></p>`;
+    const r=ov.querySelector('#runaway'); const run=e=>{e.preventDefault();r.style.transform=`translate(${Math.random()*160-80}px,${Math.random()*60-30}px)`;r.textContent=['Точно?','Не-а','Подумай ещё','Не выйдет 😄'][Math.floor(Math.random()*4)];};
+    r.addEventListener('pointerenter',run); r.addEventListener('click',run);
+    ov.querySelector('#yes').onclick=()=>{ ov.querySelector('.choice').remove(); ov.querySelector('#mm').innerHTML='Совпадение! Пусть рядом будет <b>щедрый, надёжный и влюблённый</b> мужчина, с которым легко и спокойно.'; boom({colors:['#f3a6b8','#fbf3e4','#e9c46f']}); tune(); };
+  },
+  dream(ov){
+    ov.innerHTML+=`<div class="eyebrow">Обновление системы</div><h2>Ксюша 26.0</h2><div class="bar"><i id="pb"></i></div>
+    <ul class="ach"><li>Работа, от которой горят глаза</li><li>Свой большой проект</li><li>Путешествия без поводов</li><li>Уверенность в каждом шаге</li><li>Всё задуманное — сбылось</li></ul><p class="wish" id="dw"></p>`;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>ov.querySelector('#pb').style.width='100%'));
+    const lis=ov.querySelectorAll('.ach li'); const ts=[];
+    lis.forEach((li,i)=>ts.push(setTimeout(()=>{li.classList.add('on');blip(600+i*120);},600+i*600)));
+    ts.push(setTimeout(()=>{ov.querySelector('#dw').innerHTML='Обновление установлено. Пусть в этом году <b>всё получается</b>, а мечты становятся планами.';boom();},3700));
+    ov._stop=()=>ts.forEach(clearTimeout);
+  },
+  friends(ov){
+    ov.innerHTML+=`<div class="eyebrow">Твои люди</div><div class="orbit">
+      <img src="img/06.jpg" alt="" style="left:31%;top:0">
+      <img src="img/11.jpg" alt="" style="left:0;top:34%;animation-delay:-.7s">
+      <img src="img/07.jpg" alt="" style="right:0;top:34%;animation-delay:-1.4s">
+      <img src="img/03.jpg" alt="" style="left:31%;bottom:0;animation-delay:-2.1s"></div>
+      <div class="counter" id="fc">0</div><p class="wish">Пусть рядом всегда будут <b>люди, с которыми смеёшься до слёз</b>. Друзей много, и все настоящие.</p>`;
+    let n=0; const fc=ov.querySelector('#fc');
+    const iv=setInterval(()=>{ n+=Math.ceil(Math.random()*37); if(n>=999){fc.textContent='999+ ❤';clearInterval(iv);boom();return;} fc.textContent=n; },60);
+    const hv=setInterval(()=>{ const h=document.createElement('div'); h.className='heart'; h.textContent=['❤','💛','💗','🤍'][Math.floor(Math.random()*4)]; h.style.left=Math.random()*95+'%'; ov.appendChild(h); setTimeout(()=>h.remove(),2500); },220);
+    ov._stop=()=>{clearInterval(iv);clearInterval(hv);};
+  }
+};
+document.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{ blip(700); const k=b.dataset.g; const ov=overlay('',()=>finishGift(k,b)); gifts[k](ov); });
+$('#to-final').onclick=()=>{show('s-final');boom();};
+
+/* полароиды */
+const photos=[['01','главная героиня дня'],['03','вот это команда'],['06','лучшие люди'],['09','мы, но маленькие'],['04','этот свет — для тебя'],
+  ['11','королевы вечеринки 👑'],['07','BeReal, но всё равно красиво'],['02','город у твоих ног'],['08','сёстры навсегда'],['05','золотой час'],['10','26 начинается здесь']];
+const stack=$('#stack'); let order=photos.map((_,i)=>i);
+photos.forEach(([f,c],i)=>{ const d=document.createElement('div'); d.className='pol'; d.innerHTML=`<img src="img/${f}.jpg" alt="${c}" loading="lazy"><p>${c}</p>`; d.dataset.rot=(Math.random()*12-6).toFixed(1); stack.appendChild(d); });
+const cards=[...stack.children];
+function lay(){ order.forEach((ci,pos)=>{ const c=cards[ci]; c.style.zIndex=100-pos; c.style.transform=`rotate(${c.dataset.rot}deg) translateY(${Math.min(pos,3)*4}px)`; c.style.opacity=pos<4?1:0; }); }
+lay();
+let sx=null;
+stack.addEventListener('pointerdown',e=>{sx=e.clientX;});
+stack.addEventListener('pointerup',e=>{ if(sx===null) return; const dx=e.clientX-sx; sx=null; fling(dx<-10?-1:1); });
+function fling(dir){ const top=cards[order[0]]; top.style.transform=`translateX(${dir*130}%) rotate(${dir*25}deg)`; top.style.opacity=0; blip(420);
+  setTimeout(()=>{ order.push(order.shift()); lay(); },380); }
+
+/* финал */
+$('#wish').onclick=()=>{ const s=document.createElement('div'); s.className='star'; s.style.top=(5+Math.random()*25)+'%'; s.style.left=(70+Math.random()*25)+'%'; document.body.appendChild(s); setTimeout(()=>s.remove(),1400); setTimeout(()=>boom({particleCount:60,origin:{y:.3}}),900); blip(1200); };
+$('#again').onclick=()=>{ $('#env').classList.remove('open'); out=0; document.querySelectorAll('[data-c]').forEach(c=>c.classList.remove('out')); $('#to-gifts').hidden=true;
+  $('#cake-hint').textContent='Загадай желание и задуй свечи: нажми на каждый огонёк'; opened.clear(); document.querySelectorAll('.gift').forEach(g=>g.classList.remove('done'));
+  $('#gifts-left').textContent='Осталось открыть: 4'; $('#to-final').hidden=true; show('s-env'); };
+</script>
+</body>
+</html>

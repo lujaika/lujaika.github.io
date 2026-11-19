@@ -138,7 +138,7 @@ const plural = n => (n % 10 === 1 && n % 100 !== 11) ? 'слой' : ([2, 3, 4].i
    -------------------------------------------------------------------------- */
 /* Список тренеров. Каждая карточка ведёт на страницу тренера внутри сайта (#/coach/slug).
    list — какие тренеры показать (по умолчанию все). */
-const coachList = (list = COACHES) => `<div class="cd">${list.map(c =>
+const coachList = (list = COACHES, big = false) => `<div class="cd${big ? ' cd-lg' : ''}">${list.map(c =>
   `<a class="rv" href="#/coach/${c.slug}"><div class="ini">${c.photo ? `<img src="${c.photo}" alt="${c.name}" onerror="this.remove()">` : c.initials}</div><div><h3>${c.name}</h3><small>${c.role}</small></div><i>→</i></a>`).join('')}</div>`;
 
 /* Фото тренера. Если photo пустое или файл не найден, остаются инициалы. */
@@ -169,7 +169,7 @@ const coachPage = c => {
 </div></section>` + (others.length ? `
 <section class="sec dk2"><div class="wrap" style="max-width:900px">
   <h2 class="rv" style="font-size:clamp(34px,4.6vw,66px)">${P.othersTitle}</h2>
-  ${coachList(others)}
+  ${coachList(others, true)}
 </div></section>` : '');
 };
 

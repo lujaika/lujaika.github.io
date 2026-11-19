@@ -779,15 +779,15 @@
 .gt { position: relative; margin: 0; }
 .gt b { right: 10px; font-size: clamp(14px, 1.8vw, 22px); overflow-wrap: anywhere; }
 
-/* Карточки тренеров крупнее: большое фото и крупное имя */
-.cd { gap: 18px; }
-.cd a { padding: 20px 26px; gap: 26px; border-radius: 18px; }
-.cd .ini { width: 128px; height: 160px; border-radius: 14px; overflow: hidden; font-size: 34px; }
-.cd .ini img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
-.cd h3 { font-size: clamp(21px, 2.4vw, 28px); }
-.cd small { font-size: 16px; }
+/* Карточки тренеров крупнее только на странице «Тренеры» (и в списке «Другие тренеры»); на главной размер прежний */
+.cd-lg { gap: 18px; }
+.cd-lg a { padding: 20px 26px; gap: 26px; border-radius: 18px; }
+.cd-lg .ini { width: 128px; height: 160px; border-radius: 14px; overflow: hidden; font-size: 34px; }
+.cd-lg .ini img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.cd-lg h3 { font-size: clamp(21px, 2.4vw, 28px); }
+.cd-lg small { font-size: 16px; }
 @media (max-width: 600px) {
-  .cd a { padding: 14px 16px; gap: 16px; }
-  .cd .ini { width: 92px; height: 116px; }
-  .cd h3 { font-size: 19px; }
+  .cd-lg a { padding: 14px 16px; gap: 16px; }
+  .cd-lg .ini { width: 92px; height: 116px; }
+  .cd-lg h3 { font-size: 19px; }
 }

@@ -207,7 +207,7 @@ const PAGES = {
     pageHead(COACHES_PAGE.theme, COACHES_PAGE.label, COACHES_PAGE.title, COACHES_PAGE.text, COACHES_PAGE.photo) + `
 
 <section class="sec dk"><div class="wrap" style="max-width:900px">
-  ${coachList()}
+  ${coachList(COACHES, true)}
   <p class="rv" style="margin:50px 0 26px;opacity:.8">${COACHES_PAGE.note}</p>
   <a class="btn" href="${SITE.trainingFormUrl}" target="_blank" rel="noopener">Записаться на тренировку</a>
 </div></section>`,

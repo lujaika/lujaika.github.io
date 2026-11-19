@@ -232,3 +232,7 @@
   text-align: center;
   padding: 0 20px;
 }
+
+/* Логотип «10 лет» */
+.logo img { display: block; height: 78px; width: auto; }
+@media (max-width: 600px) { .logo img { height: 58px; } }

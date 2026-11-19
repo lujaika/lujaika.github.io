@@ -32,7 +32,7 @@ const formatDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('ru-RU'
    Шапка сайта и меню
    -------------------------------------------------------------------------- */
 const headerHtml = () => `<div class="wrap">
-  <a class="logo" href="#/">${BALL_ICON('#cdf24a').replace('stroke-width="2.4"', 'stroke-width="1.6"')}${SITE.name}</a>
+  <a class="logo" href="#/" aria-label="Лужайка, теннисный клуб, 10 лет"><img src="img/logo-10-let.png" alt="Лужайка, теннисный клуб, 10 лет" width="1232" height="664"></a>
   <nav class="links" id="lk">${NAV.filter(x => !['', 'book'].includes(x[0])).map(x => `<a class="lk" href="#/${x[0]}">${x[1]}</a>`).join('')}</nav>
   <div style="display:flex;gap:10px;align-items:center">
     <a class="hb" href="#/book">${HEADER_BUTTON}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -59,7 +59,7 @@ const serviceBlock = b => `<section class="${b.theme}"><div class="wrap sb ${b.r
   <div class="rv">${PX(b.photo, '4/3')}</div>
   <div class="rv"><span class="lb">${b.label}</span><h2>${b.title}</h2><p>${b.text}</p>
     <ul>${b.bullets.map(x => `<li>${x}</li>`).join('')}</ul>
-    <div class="row"><span class="price">${b.price}</span>${b.label === 'Турниры' ? '' : `<a class="btn" href="${SITE.trainingFormUrl}" target="_blank" rel="noopener">${SERVICES.buttonBlock}</a>`}</div>
+    <div class="row"><span class="price">${b.price}</span>${b.link ? `<a class="btn" href="#/tournaments">${TOURNAMENTS.linkButton}</a>` : b.noTrain ? '' : `<a class="btn" href="${SITE.trainingFormUrl}" target="_blank" rel="noopener">${SERVICES.buttonBlock}</a>`}</div>
   </div>
 </div></section>`;
 
@@ -76,8 +76,19 @@ let activePriceTab = Object.keys(PRICES)[0];
 const priceTabs = () =>
   `<div class="chips">${Object.keys(PRICES).map(k => `<button class="chip ${k === activePriceTab ? 'on' : ''}" data-tab="${k}">${k}</button>`).join('')}</div>${priceCards(PRICES[activePriceTab])}`;
 
-/* Частые вопросы */
-const faqList = () => FAQ.map(x => `<details class="rv"><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('');
+/* Страница «Сетки и фото турниров» */
+const tournamentsPage = () => {
+  const T = TOURNAMENTS;
+  const gallery = (title, items) => `<h3 style="margin:34px 0 14px">${title}</h3>` + (items.length
+    ? `<div class="gg">${items.map(x => `<figure class="gt rv" style="margin:0"><img src="${x[1]}" alt="${x[0]}" loading="lazy" style="width:100%;height:auto;border-radius:14px;display:block"><b>${x[0]}</b></figure>`).join('')}</div>`
+    : `<p style="opacity:.7">${T.empty}</p>`);
+  return pageHead('', T.head.label, T.head.title, T.head.text, T.head.photo) +
+    T.series.map((s, i) => `<section class="sec ${i % 2 ? 'dk2' : 'dk'}"><div class="wrap">
+      <h2 class="rv">${s.title}</h2><p class="rv" style="margin-top:10px;opacity:.85">${s.sub}</p>
+      ${gallery(T.gridsTitle, s.grids)}${gallery(T.photosTitle, s.photos)}
+    </div></section>`).join('') +
+    `<section class="sec lt"><div class="wrap"><div class="row"><a class="btn" href="#/services">${T.back}</a>${callButton()}</div></div></section>`;
+};
 
 
 /* --------------------------------------------------------------------------

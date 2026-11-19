@@ -17,6 +17,7 @@ COACHES.forEach(c => { PAGE_TITLES['coach/' + c.slug] = c.name; });   // стр�
 PAGE_TITLES.privacy = PRIVACY.title;
 PAGE_TITLES.consent = CONSENT.title;
 PAGE_TITLES.luzhik = LUZHIK_PAGE.title;
+PAGE_TITLES.tournaments = TOURNAMENTS.head.title;
 
 /* Цвета полос при переходе между страницами */
 const TRANSITION_COLORS = ['#0a1410', '#cdf24a', '#9c3f2b', '#2a6bd0', '#2f6b3a'];
@@ -27,7 +28,7 @@ const TRANSITION_COLORS = ['#0a1410', '#cdf24a', '#9c3f2b', '#2a6bd0', '#2f6b3a'
    -------------------------------------------------------------------------- */
 $('#hd').innerHTML = headerHtml();
 $('#mn').innerHTML = mobileMenuHtml();
-$('#bars').innerHTML = '<i></i><img class="tr-lz" src="img/luzhik/run.png?v=2" alt="">';  // переход: тёмно-зелёный экран + бегущий Лужик
+$('#bars').innerHTML = '<i></i><img class="tr-lz" src="img/luzhik/run.png?v=6" alt="">';  // переход: тёмно-зелёный экран + бегущий Лужик
 
 
 /* --------------------------------------------------------------------------
@@ -131,6 +132,11 @@ addEventListener('hashchange', navigate);
 addEventListener('scroll', updateOnScroll, { passive: true });
 addEventListener('keydown', e => e.key === 'Escape' && toggleMenu(false));
 $('#mb').onclick = () => toggleMenu(!body.classList.contains('mo'));
+
+/* Нажатие на Лужика (главный экран, у кнопки записи, между разделами) открывает страницу Лужика */
+document.addEventListener('click', e => {
+  if (e.target.closest('.hero-lz, .cta-lz, .dv-i')) location.hash = '#/luzhik';
+});
 
 /* Все нажатия на кнопки с data-… (вкладки цен, выбор корта, стрелки карусели) */
 document.addEventListener('click', e => {

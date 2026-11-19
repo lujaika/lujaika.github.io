@@ -44,7 +44,7 @@ const PAGES = {
       <a class="bt" href="#/prices">${ARROW}${HOME.buttonPrices}</a>
     </div>
   </div>
-  <img class="hero-lz" src="img/luzhik/hello.png" alt="Лужик машет рукой" width="260" height="260">
+  <img class="hero-lz" src="img/luzhik/hello.png?v=6" alt="Лужик машет рукой" width="260" height="260">
   <div class="facts"><div class="wrap">
     ${HOME.facts.map(f => `<span>${f}</span>`).join('')}
     <a href="${TEL}">${SITE.phone}</a>
@@ -75,15 +75,9 @@ const PAGES = {
   </div>
 </section>
 
-<!-- ===== Синий блок «Теннис для всех» ===== -->
-<section class="bl"><div class="wrap">
-  <h2 class="rv">${HOME.blue.title.join('<br>')}</h2>
-  <div class="rv" style="position:relative">${PX(HOME.blue.photo, '21/9')}<div class="gl">${HOME.blue.caption}</div></div>
-</div></section>
-
 <!-- ===== Светлый блок «О клубе» ===== -->
 <section class="sec lt"><div class="wrap">
-  <div class="mk"><b>A</b>${HOME.about.marker}</div>
+  <div class="mk">${HOME.about.marker}</div>
   <div class="ab">
     <h2 class="rv">${HOME.about.title}</h2>
     <p class="rv">${HOME.about.text1}</p>
@@ -103,7 +97,7 @@ const PAGES = {
 
 <!-- ===== Карусель программ ===== -->
 <section class="sec lt" style="padding-top:0"><div class="wrap">
-  <div class="mk"><b>B</b>${HOME.programs.marker}</div>
+  <div class="mk">${HOME.programs.marker}</div>
   <div class="ch">
     <h2 class="rv">${HOME.programs.title}</h2>
     <div class="ar"><button data-scroll="-1" aria-label="Назад">←</button><button data-scroll="1" aria-label="Вперёд">→</button></div>
@@ -132,7 +126,7 @@ const PAGES = {
 <!-- ===== Финальный призыв ===== -->
 <section class="cta2">
   <div class="ball3" aria-hidden="true"></div>
-  <img class="cta-lz" src="img/luzhik/book.png" alt="Лужик: бронирую корт" width="260" height="260" loading="lazy">
+  <img class="cta-lz" src="img/luzhik/book.png?v=6" alt="Лужик: бронирую корт" width="260" height="260" loading="lazy">
   <div class="wrap">
     <span class="lb">${HOME.cta.label}</span>
     <h2 class="rv">${HOME.cta.title}<span class="lm">${HOME.cta.titleAccent}</span></h2>
@@ -178,12 +172,15 @@ const PAGES = {
 <!-- ===== Прайс с вкладками ===== -->
 <section class="sec dk"><div class="wrap" id="prp">${priceTabs()}</div></section>
 
-<!-- ===== Частые вопросы ===== -->
+<!-- ===== Кнопки внизу страницы цен ===== -->
 <section class="sec lt"><div class="wrap">
-  <h2 class="rv" style="margin-bottom:34px">${PRICES_PAGE.faqTitle}</h2>
-  ${faqList()}
-  <div class="row" style="margin-top:44px"><a class="btn" href="#/book">${HOME.buttonBook}</a>${callButton()}</div>
+  <div class="row"><a class="btn" href="#/book">${HOME.buttonBook}</a>${callButton()}</div>
 </div></section>`,
+
+  /* ======================================================================
+     СЕТКИ И ФОТО ТУРНИРОВ
+     ====================================================================== */
+  tournaments: () => tournamentsPage(),
 
 
   /* ======================================================================
@@ -194,7 +191,7 @@ const PAGES = {
 
 <!-- ===== История по годам ===== -->
 <section class="sec dk"><div class="wrap">
-  ${ABOUT.timeline.map(t => `<div class="yr rv"><h2>${t.year}</h2><p>${t.text}</p></div>`).join('')}
+  ${ABOUT.timeline.map(t => `<div class="yr rv${t.hl ? ' yr-hl' : ''}"><h2>${t.year}</h2><p>${t.text}</p></div>`).join('')}
 </div></section>
 
 <!-- ===== Покрытие: схема слоёв ===== -->
@@ -236,8 +233,9 @@ const PAGES = {
     <p>Выберите вид игры, дату и свободный интервал в расписании. Шаги времени — 30 минут. Бронирование оформляется в системе клуба.</p>
   </div>
   <div class="booking-frame">
-    <div class="bk-gate"><p>Онлайн-запись откроется на сайте нашей системы бронирования go2sport.ru.</p><a class="btn" href="https://go2sport.ru/clubs/luzhayka/" target="_blank" rel="noopener">Открыть онлайн-запись</a><p style="margin-top:18px">Или позвоните: <a href="tel:+79216501722">+7 (921) 650-17-22</a></p></div>
+    <iframe src="https://go2sport.ru/clubs/luzhayka/?i=1" title="Онлайн-бронирование кортов" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
+  <p class="booking-fallback">Если расписание не загрузилось, <a href="https://go2sport.ru/clubs/luzhayka/" target="_blank" rel="noopener">откройте его в отдельной вкладке</a> или позвоните: <a href="tel:+79216501722">+7 (921) 650-17-22</a>.</p>
 </div></section>`,
 
 
@@ -252,6 +250,7 @@ const PAGES = {
     <div class="rv"><small>${CONTACTS.labels.address}</small><b>${SITE.address}</b></div>
     <div class="rv"><small>${CONTACTS.labels.hours}</small><b>${SITE.hours}</b></div>
     <a class="rv" href="${TEL}"><small>${CONTACTS.labels.phone}</small><b>${SITE.phone}</b></a>
+    <a class="rv" href="tel:${SITE.phoneCityLink}"><small>Городской телефон</small><b>${SITE.phoneCity}</b></a>
     <a class="rv" href="mailto:${SITE.email}"><small>${CONTACTS.labels.email}</small><b>${SITE.email}</b></a>
   </div>
   <div class="row" style="margin-top:44px">

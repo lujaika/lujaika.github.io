@@ -750,3 +750,7 @@ details p {
     border-radius: 12px;
   }
 }
+
+/* Главная дата истории (2017) выделена сплошным цветом */
+.yr.yr-hl h2 { color: var(--lime); -webkit-text-stroke: 0; }
+.yr.yr-hl p { font-size: 1.25em; font-weight: 700; }

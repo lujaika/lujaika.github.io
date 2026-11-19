@@ -774,3 +774,7 @@
 .cta2 .ov {
   background: linear-gradient(90deg,rgba(10,20,16,.92),rgba(10,20,16,.4));
 }
+
+/* Подписи галереи «Корты, люди, игра» всегда видны на своём фото */
+.gt { position: relative; margin: 0; }
+.gt b { right: 10px; font-size: clamp(14px, 1.8vw, 22px); overflow-wrap: anywhere; }

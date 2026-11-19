@@ -28,12 +28,6 @@ const PAGES = {
   <svg class="bga" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">${ART.court().replace(/^<svg[^>]*>|<\/svg>$/g, '')}</svg>
   ${HERO_VIDEO ? `<video class="hero-video" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg?v=2" src="${HERO_VIDEO}" onloadeddata="this.classList.add('is-ready')" onerror="this.remove()"></video>` : ''}
   <div class="ov"></div>
-  <svg class="badge" viewBox="0 0 150 150" aria-hidden="true">
-    <defs><path id="cb" d="M75 75m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs>
-    <text><textPath href="#cb">${HOME.badge}</textPath></text>
-    <circle cx="75" cy="75" r="26" fill="#cdf24a"/>
-    <path d="M53 64c16 7 16 29 0 36M97 64c-16 7-16 29 0 36" stroke="#fff" stroke-width="3.4" fill="none"/>
-  </svg>
   <div class="side">${HOME.sideWords.map(w => `<span>${w}</span>`).join('')}</div>
   <div class="wrap" style="width:100%;position:relative;z-index:3">
     <span class="lb" style="--delay:.3s">${HOME.eyebrow}</span>

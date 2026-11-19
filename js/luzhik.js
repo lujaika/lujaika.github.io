@@ -30,7 +30,7 @@ function insertLuzhikDividers() {
   kids.forEach((el, i) => {
     const isBlock = el.tagName === 'SECTION' || el.tagName === 'FOOTER';
     if (!isBlock || i === 0) return;
-    if (el.matches('.hero, .ph, .cp')) return;
+    if (el.matches('.hero, .ph, .cp, .cta2, footer')) return;   // у финального блока свой Лужик, подвал с текстом не закрываем
     const prev = kids[i - 1];
     if (++eligible % 2 === 0) return;   // Лужик не чаще, чем через раздел: два рядом — перебор
     if (prev.matches('.hero, .ph, .tk')) return;

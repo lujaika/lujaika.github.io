@@ -42,6 +42,7 @@ const PAGES = {
   <div class="facts"><div class="wrap">
     ${HOME.facts.map(f => `<span>${f}</span>`).join('')}
     <a href="${TEL}">${SITE.phone}</a>
+    <a href="tel:${SITE.phoneCityLink}">${SITE.phoneCity}</a>
   </div></div>
 </section>
 
@@ -57,17 +58,6 @@ const PAGES = {
   </div>
   <div class="ft">${HOME.why.features.map(f => `<div class="rv"><svg viewBox="0 0 32 32">${ICONS[f.icon]}</svg><h3>${f.title}</h3><p>${f.text}</p></div>`).join('')}</div>
 </div></section>
-
-<!-- ===== Ретро-блок: «Теннис» и «Цены» ===== -->
-<section class="rt">
-  <div class="g"><h2>${HOME.retro.green}</h2></div>
-  <i class="l"></i><i class="rb"></i>
-  <div class="b">
-    <h2>${HOME.retro.brick}</h2>
-    <div class="pl">${HOME.retro.rows.map(r => `<a href="#/${r.to}"><b>${num(r.price)}</b>${r.text}</a>`).join('')}</div>
-    <a class="btn" href="#/prices">${HOME.retro.button}</a>
-  </div>
-</section>
 
 <!-- ===== Светлый блок «О клубе» ===== -->
 <section class="sec lt"><div class="wrap">
@@ -127,6 +117,7 @@ const PAGES = {
     <div class="cta">
       <a class="btn" href="#/book">${HOME.cta.button}</a>
       <a class="bt" href="${TEL}">${ARROW}${SITE.phone}</a>
+      <a class="bt" href="tel:${SITE.phoneCityLink}">${ARROW}${SITE.phoneCity}</a>
     </div>
   </div>
 </section>`,
@@ -229,7 +220,7 @@ const PAGES = {
   <div class="booking-frame">
     <iframe src="https://go2sport.ru/clubs/luzhayka/?i=1" title="Онлайн-бронирование кортов" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
-  <p class="booking-fallback">Если расписание не загрузилось, <a href="https://go2sport.ru/clubs/luzhayka/" target="_blank" rel="noopener">откройте его в отдельной вкладке</a> или позвоните: <a href="tel:+79216501722">+7 (921) 650-17-22</a>.</p>
+  <p class="booking-fallback">Если расписание не загрузилось, <a href="https://go2sport.ru/clubs/luzhayka/" target="_blank" rel="noopener">откройте его в отдельной вкладке</a> или позвоните: <a href="tel:+79216501722">+7 (921) 650-17-22</a>, <a href="tel:+78127035939">8 (812) 703-59-39</a>.</p>
 </div></section>`,
 
 

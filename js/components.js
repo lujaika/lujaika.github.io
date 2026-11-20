@@ -59,7 +59,7 @@ const serviceBlock = b => `<section class="${b.theme}"><div class="wrap sb ${b.r
   <div class="rv">${PX(b.photo, '4/3')}</div>
   <div class="rv"><span class="lb">${b.label}</span><h2>${b.title}</h2><p>${b.text}</p>
     <ul>${b.bullets.map(x => `<li>${x}</li>`).join('')}</ul>
-    <div class="row"><span class="price">${b.price}</span>${b.link ? `<a class="btn" href="#/tournaments">${TOURNAMENTS.linkButton}</a>` : b.noTrain ? '' : `<a class="btn" href="${SITE.trainingFormUrl}" target="_blank" rel="noopener">${SERVICES.buttonBlock}</a>`}</div>
+    <div class="row">${b.price ? `<span class="price">${b.price}</span>` : ''}${b.link ? `<a class="btn" href="#/tournaments">${TOURNAMENTS.linkButton}</a>` : b.noTrain ? '' : `<a class="btn" href="${SITE.trainingFormUrl}" target="_blank" rel="noopener">${SERVICES.buttonBlock}</a>`}</div>
   </div>
 </div></section>`;
 

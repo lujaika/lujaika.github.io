@@ -200,12 +200,6 @@ const footerHtml = () => `<footer><div class="wrap">
   <small>${FOOTER.copyright} · <a href="${SITE.privacyUrl}" style="display:inline">${FOOTER.privacyText}</a></small>
 </div></footer>`;
 
-
-/* Встроенное расписание go2sport.ru не работает на телефонах и в Safari: браузер не сохраняет сессию в чужом окне,
-   и после выбора времени бронь «теряется» (страница «У вас нет заказов»). Там открываем бронирование на самом go2sport.ru. */
-const bookingCanEmbed = () => {
-  const ua = navigator.userAgent;
-  const mobile = /iPhone|iPad|iPod|Android|Mobile/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
-  const safari = /Safari/.test(ua) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR/.test(ua);
-  return !(mobile || safari || innerWidth <= 900);
-};
+/* Расписание go2sport.ru встроено в страницу на всех устройствах (решение владелицы).
+   Если в телефоне после выбора времени пропадает бронь («У Вас нет заказов»), под окном есть ссылка на открытие на go2sport.ru. */
+const bookingCanEmbed = () => true;

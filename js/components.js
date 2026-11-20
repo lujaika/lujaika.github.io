@@ -201,5 +201,14 @@ const footerHtml = () => `<footer><div class="wrap">
 </div></footer>`;
 
 /* Расписание go2sport.ru встроено в страницу на всех устройствах (решение владелицы).
-   Если в телефоне после выбора времени пропадает бронь («У Вас нет заказов»), под окном есть ссылка на открытие на go2sport.ru. */
+   Как на старом сайте на WordPress: подключаем их официальный скрипт frame.book.js. Он (1) подгоняет высоту окна под расписание,
+   (2) в Safari, Firefox и Яндекс.Браузере (где встроенное окно теряет бронь) открывает бронирование на самом go2sport.ru.
+   Скрипт ищет окно с id="booking" и запускается каждый раз при открытии страницы. */
 const bookingCanEmbed = () => true;
+function loadBookingHelper() {
+  document.getElementById('go2sport-frame-js')?.remove();
+  const s = document.createElement('script');
+  s.id = 'go2sport-frame-js';
+  s.src = 'https://go2sport.ru/js/frame.book.js';
+  document.body.appendChild(s);
+}

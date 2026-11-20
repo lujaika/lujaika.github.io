@@ -77,6 +77,7 @@ function render(page) {
 
   // Скрипты отдельных страниц
   if (page === '') startBallGame();            // ball-game.js
+  if (page === 'book') loadBookingHelper();    // components.js: скрипт go2sport.ru для окна расписания
 
   updateOnScroll();
 }

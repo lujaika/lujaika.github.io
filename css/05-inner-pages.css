@@ -754,3 +754,7 @@ details p {
 /* Главная дата истории (2017) выделена сплошным цветом */
 .yr.yr-hl h2 { color: var(--lime); -webkit-text-stroke: 0; }
 .yr.yr-hl p { font-size: 1.25em; font-weight: 700; }
+
+/* Окно расписания go2sport.ru: высоту задаёт их скрипт, поэтому рамка не обрезает и не задаёт свою высоту */
+.booking-frame { height: auto; min-height: 0; overflow: visible; }
+.booking-frame iframe#booking { height: 700px; }

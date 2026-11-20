@@ -218,7 +218,7 @@ const PAGES = {
     <p>Выберите вид игры, дату и свободный интервал в расписании. Шаги времени — 30 минут. Бронирование оформляется в системе клуба.</p>
   </div>
   ${bookingCanEmbed() ? `<div class="booking-frame">
-    <iframe src="https://go2sport.ru/clubs/luzhayka/?i=1" title="Онлайн-бронирование кортов" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <iframe id="booking" src="https://go2sport.ru/clubs/luzhayka/?i=1" title="Онлайн-бронирование кортов" style="width:100%;border:0;height:700px"></iframe>
   </div>` : `<div class="bk-gate"><p>Бронирование и оплата проходят на странице клуба в системе go2sport.ru. Нажмите кнопку, выберите корт и время, оформите бронь.</p><a class="btn" href="https://go2sport.ru/clubs/luzhayka/?i=1">Выбрать корт и время</a></div>`}
   <p class="booking-fallback">Если расписание не загрузилось или бронь не оформляется, <a href="https://go2sport.ru/clubs/luzhayka/" target="_blank" rel="noopener">откройте его в отдельной вкладке</a> или позвоните: <a href="tel:+79216501722">+7 (921) 650-17-22</a>, <a href="tel:+78127035939">8 (812) 703-59-39</a>.</p>
 </div></section>`,

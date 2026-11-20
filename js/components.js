@@ -32,7 +32,7 @@ const formatDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('ru-RU'
    Шапка сайта и меню
    -------------------------------------------------------------------------- */
 const headerHtml = () => `<div class="wrap">
-  <a class="logo" href="#/" aria-label="Лужайка, теннисный клуб, 10 лет"><img src="img/logo-10-let-color.png" alt="Лужайка, теннисный клуб, 10 лет" width="560" height="318"></a>
+  <a class="logo" href="#/" aria-label="Лужайка, теннисный клуб, 10 лет"><img src="img/logo-10-let-color2.png" alt="Лужайка, теннисный клуб, 10 лет" width="560" height="325"></a>
   <nav class="links" id="lk">${NAV.filter(x => !['', 'book'].includes(x[0])).map(x => `<a class="lk" href="#/${x[0]}">${x[1]}</a>`).join('')}</nav>
   <div style="display:flex;gap:10px;align-items:center">
     <a class="hb" href="#/book">${HEADER_BUTTON}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -199,3 +199,13 @@ const footerHtml = () => `<footer><div class="wrap">
   <div><p>${SITE.addressFooter}</p><p>${SITE.hoursShort}</p><a href="${TEL}">${SITE.phone}</a><a href="tel:${SITE.phoneCityLink}">${SITE.phoneCity}</a><a href="mailto:${SITE.email}">${SITE.email}</a><a href="https://www.instagram.com/lujaika.tennis" target="_blank" rel="noopener">Instagram</a><a href="https://vk.ru/lulaika_tennis" target="_blank" rel="noopener">ВКонтакте</a></div>
   <small>${FOOTER.copyright} · <a href="${SITE.privacyUrl}" style="display:inline">${FOOTER.privacyText}</a></small>
 </div></footer>`;
+
+
+/* Встроенное расписание go2sport.ru не работает на телефонах и в Safari: браузер не сохраняет сессию в чужом окне,
+   и после выбора времени бронь «теряется» (страница «У вас нет заказов»). Там открываем бронирование на самом go2sport.ru. */
+const bookingCanEmbed = () => {
+  const ua = navigator.userAgent;
+  const mobile = /iPhone|iPad|iPod|Android|Mobile/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
+  const safari = /Safari/.test(ua) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR/.test(ua);
+  return !(mobile || safari || innerWidth <= 900);
+};

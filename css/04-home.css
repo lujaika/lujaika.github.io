@@ -791,3 +791,7 @@
   .cd-lg .ini { width: 92px; height: 116px; }
   .cd-lg h3 { font-size: 19px; }
 }
+
+/* Главная, блок «Живой теннис»: вертикальные фото тренеров (3:4), голова целиком, без увеличения */
+.cd:not(.cd-lg) .ini { width: 78px; height: 104px; border-radius: 10px; overflow: hidden; }
+.cd:not(.cd-lg) .ini img { object-fit: cover; object-position: 50% 8%; transform: none; }
